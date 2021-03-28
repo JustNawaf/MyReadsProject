@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCheck} from '@fortawesome/free-solid-svg-icons';
 export default class Book extends Component {
     state = {
         showModal:false,
@@ -33,23 +34,26 @@ export default class Book extends Component {
                         <button className="z-10 focus:outline-none">...</button>
                         {
                             this.state.showModal && 
-                            <div className="absolute -top-20 -right-10 w-40 h-24 bg-white shadow-xl border-none rounded-md bg-gray-100 z-30">
+                            <div className="absolute -top-20 -right-10 w-48 h-24 bg-white shadow-xl border-none rounded-md bg-gray-100 z-30">
                                 <div className="flex flex-col justify-start text-sm">
                                     <p className="px-2 mb-1 pt-2 text-left">Move to</p>
                                     <button className="h-full px-4 text-left text-justify transition 
                                     duration-100 hover:bg-blue-400 hover:text-white focus:outline-none" onClick={() => alert("Currently Reading")}>
+                                        <FontAwesomeIcon icon={faCheck} className="mr-2" />
                                         Currently Reading
-                                        </button>
+                                    </button>
 
                                     <button className="h-full px-4 text-left text-justify transition 
                                     duration-100 hover:bg-blue-400 hover:text-white focus:outline-none" onClick={() => alert("Want To Read")}>
+                                        {/* <FontAwesomeIcon icon={faCheck} className="mr-2" /> */}
                                         Want To Read
                                         </button>
 
                                     <button className="h-full px-4 text-left text-justify transition 
                                     duration-100 hover:bg-blue-400 hover:text-white focus:outline-none" onClick={() => alert("Read")}>
+                                        <FontAwesomeIcon icon={faCheck} className="mr-2" />
                                         Read
-                                        </button>
+                                    </button>
                                 </div>
                             </div>
                         }
