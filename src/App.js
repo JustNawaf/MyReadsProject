@@ -8,7 +8,7 @@ import Search from "./pages/Search";
 function App() {
   return (
     <div className="App">
-      {/* <Init /> */}
+      {/* <Init time={5000}/> */}
       <Route exact path="/" component={Index} />
       <Route exact path="/Search" component={Search} />
     </div>

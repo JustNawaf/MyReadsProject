@@ -25,7 +25,7 @@ export default class Book extends Component {
 
     render() {
         return (
-            <div className="w-52 h-72 border-none rounded-md mx-4 my-2 bg-white">
+            <div className="w-52 h-72 border-none rounded-md mx-4 my-2 bg-white shadow-2xl">
                 <img className="h-56 border-none rounded-t-md" src="https://www.capturelandscapes.com/wp-content/uploads/2019/04/Desert-Nights.jpg" />
                 <div className="w-full h-16 text-center  grid grid-cols-3 grid-rows-2">
                     <h2 className="text-xl col-span-3 flex justify-center items-center">Book Title</h2>

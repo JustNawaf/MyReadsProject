@@ -11,14 +11,14 @@ export default class Ini extends Component {
             this.setState({
                 show:false
             });
-        },2000)
+        },this.props.time)
     };
 
     render() {
         return (
             (
                 this.state.show && 
-                <div className="bg-black text-white flex justify-center items-center h-screen font-bold text-4xl">
+                <div className="absolute top-0 bg-black text-white flex justify-center items-center w-full h-screen font-bold text-4xl">
                     I Introduce MyReads Project
                 </div>
             )
