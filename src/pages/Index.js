@@ -11,8 +11,8 @@ export default class Index extends Component {
           <div className="w-full">
             <h1 className="text-3xl">Currently Reading</h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-wrap justify-center w-full">
-              {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(() => (
-                <Book />
+              {this.props.books.map((book) => (
+                <Book book={book}/>
               ))}
             </div>
             <div className="w-full h-1 bg-gray-200 my-4"></div>
@@ -22,8 +22,8 @@ export default class Index extends Component {
           <div className="w-full">
             <h1 className="text-3xl">Want To Read </h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-wrap justify-center w-full">
-              {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(() => (
-                <Book />
+              {this.props.books.map((book) => (
+                <Book book={book}/>
               ))}
             </div>
             <div className="w-full h-1 bg-gray-200 my-4"></div>
@@ -33,8 +33,8 @@ export default class Index extends Component {
           <div className="w-full">
             <h1 className="text-3xl">Read</h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-wrap justify-center w-full">
-              {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(() => (
-                <Book />
+              {this.props.books.map((book) => (
+                <Book book={book}/>
               ))}
             </div>
           </div>
