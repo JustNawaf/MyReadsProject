@@ -18,8 +18,8 @@ export default class Ini extends Component {
         return (
             (
                 this.state.show && 
-                <div className="absolute top-0 bg-black text-white flex justify-center items-center w-full h-screen font-bold text-4xl">
-                    I Introduce MyReads Project
+                <div className="absolute top-0 bg-black text-white flex justify-center items-center w-full h-screen font-bold text-4xl z-50">
+                    I Introduce You MyReads Project
                 </div>
             )
         )

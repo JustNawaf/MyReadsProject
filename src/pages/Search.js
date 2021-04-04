@@ -4,22 +4,47 @@ import {faArrowAltCircleLeft , faSearch} from '@fortawesome/free-solid-svg-icons
 import { Link } from 'react-router-dom';
 import { search } from '../API/BooksAPI';
 import Book from '../components/Book';
+import Loading from '../components/Loading';
 export default class Search extends Component {
     state = {
         search:'',
         books:[],
+        showLoading:false,
     };
 
+    setLoading = (loading) => {
+        this.setState({
+          showLoading:loading,
+        });
+      };
+
+    setBooks = (books) => {
+        this.setState({
+            books
+        });
+    }
 
     search = (event) => {
         event.preventDefault();
-        console.log(this.state.search)
+        this.setLoading(true);
+        this.setBooks([]);
+
         search(this.state.search,10).then((data) => {
-            console.log(data)
-            // this.setState({
-            //     books:data
-            // });
-        });
+            if('error' in data){
+                return;
+            }
+
+            let books = data.map((dt) => {
+                let book = this.props.books.find((book) => book.id === dt.id);
+                if(book){
+                    dt.shelf = book.shelf;
+                    return dt;
+                }
+                return dt;
+            })
+            this.setBooks(books);
+
+        }).then(() => this.setLoading(false));
     }
 
     onChange = (event) => {
@@ -29,6 +54,19 @@ export default class Search extends Component {
         });
     };
 
+    updateBookShelf = (book,shelf) => {
+        let books = this.state.books.map((bk) => {
+          if(bk.id === book.id){
+            bk.shelf = shelf;
+            return bk;
+          }
+          return bk;
+        });
+    
+        this.setState({books});
+          
+      };
+
     render() {
         return (
             <div>
@@ -36,7 +74,7 @@ export default class Search extends Component {
                     <Link to="/"><FontAwesomeIcon icon={faArrowAltCircleLeft} size="3x" className="text-gray-600" /></Link>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-center">
-                    <div className="w-2/3 h-full">
+                    <div className="w-full px-2 lg:px-0 lg:w-2/3 h-full">
                         <h1 className="text-center text-3xl mb-12">Search</h1>
                         <div className="w-full">
                         <form className="w-full grid grid-cols-10" onSubmit={this.search}>
@@ -53,14 +91,27 @@ export default class Search extends Component {
                         </form>
                         </div>
                     </div>
-                    <div className="w-2/3 my-8">
+                    <div className="w-full px-2 lg:px-0 lg:w-2/3 my-8">
                         <div className="w-full h-1 bg-gray-200 my-4"></div>
                         <h1 className="text-left text-2xl">Books</h1>
-                        <div className="w-full h-full flex flex-wrap justify-center items-center">
-                            {
-                                this.state.books.map((book) => <Book book={book}/>)
-                            }
+                        <div className="w-full h-full flex justify-center items-center">
+                            <Loading show={this.state.showLoading}/>
                         </div>
+
+                        {
+                            this.state.books.length > 0 && 
+                            <div className="w-full h-full flex flex-wrap justify-center items-center">
+                                {
+                                    this.state.books.map((book) => <Book key={book.id} book={book} updateBookShelf={this.updateBookShelf}/>)
+                                }
+                            </div>
+                        }
+                        {
+                            this.state.books.length === 0 && !this.state.showLoading &&
+                            <div className="w-full h-full flex flex-wrap justify-center items-center">
+                                There is not any book
+                            </div>
+                        }
                     </div>
                 </div>
 
