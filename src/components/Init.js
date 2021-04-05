@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
-export default class Ini extends Component {
+class Init extends Component {
 
     state = {
         show:true,
@@ -25,3 +26,9 @@ export default class Ini extends Component {
         )
     }
 }
+
+Init.propTypes = {
+    time:PropTypes.number
+};
+
+export default Init;

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowAltCircleLeft , faSearch} from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import { search } from '../API/BooksAPI';
 import Book from '../components/Book';
 import Loading from '../components/Loading';
-export default class Search extends Component {
+import PropTypes from 'prop-types';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+class Search extends Component {
     state = {
         search:'',
         books:[],
@@ -69,10 +70,10 @@ export default class Search extends Component {
 
     render() {
         return (
-            <div>
-                <div className="w-full px-6 py-4">
+            <div className="mt-6">
+                {/* <div className="w-full px-6 py-4">
                     <Link to="/"><FontAwesomeIcon icon={faArrowAltCircleLeft} size="3x" className="text-gray-600" /></Link>
-                </div>
+                </div> */}
                 <div className="w-full h-full flex flex-col justify-center items-center">
                     <div className="w-full px-2 lg:px-0 lg:w-2/3 h-full">
                         <h1 className="text-center text-3xl mb-12">Search</h1>
@@ -95,7 +96,9 @@ export default class Search extends Component {
                         <div className="w-full h-1 bg-gray-200 my-4"></div>
                         <h1 className="text-left text-2xl">Books</h1>
                         <div className="w-full h-full flex justify-center items-center">
-                            <Loading show={this.state.showLoading}/>
+                            {
+                                this.state.showLoading && <Loading/>
+                            }
                         </div>
 
                         {
@@ -119,3 +122,9 @@ export default class Search extends Component {
         )
     }
 }
+
+Search.propTypes = {
+    books:PropTypes.array,
+};
+
+export default Search;

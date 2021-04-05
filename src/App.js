@@ -65,7 +65,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Init time={5000}/>
+        {/* <Init time={5000}/> */}
         <Route exact path="/">
             <Index books={this.state.books} updateBookShelf={this.updateBookShelf} updateBooks={this.updateBooks} showLoading={this.state.showLoading} setBooks={this.setBooks}/>
         </Route>
