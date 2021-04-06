@@ -78,16 +78,16 @@ class Search extends Component {
                     <div className="w-full px-2 lg:px-0 lg:w-2/3 h-full">
                         <h1 className="text-center text-3xl mb-12">Search</h1>
                         <div className="w-full">
-                        <form className="w-full grid grid-cols-10" onSubmit={this.search}>
-                            <div className="col-span-9 flex justify-center items-center"> 
+                        <form className="w-full" onSubmit={this.search}>
+                            <div className="relative flex justify-center items-center"> 
                                     <input type="text" name="search" value={this.state.search} onChange={this.onChange}
-                                    className="w-full h-full px-4 py-2 bg-gray-200 border border-gray-300 focus:outline-none"/>
-                            </div>
-                            <div className="col-span-1 flex justify-center items-center">
-                                <button type="submit" className="focus:outline-none">
-                                    <FontAwesomeIcon icon={faSearch} size="2x"
-                                     className="border-none rounded-md transition duration-200 text-gray-600 bg-gray-200 p-1 hover:bg-gray-300 hover:text-gray-700" />
-                                </button>
+                                    className="w-full h-full px-4 py-2 bg-gray-100 border border-gray-300 focus:outline-none shadow-inner"/>
+
+                                    <button type="submit" className="absolute right-0 px-2 py-1 border rounded-l-md shadow-lg bg-gray-200 hover:bg-gray-300
+                                    transition duration-150 focus:outline-none">
+                                        <FontAwesomeIcon icon={faSearch} size="lg" className=" text-gray-600" />
+                                            
+                                    </button>
                             </div>
                         </form>
                         </div>

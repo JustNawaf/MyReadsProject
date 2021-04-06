@@ -20,7 +20,8 @@ class Navbar extends Component {
                     </h1>
                     {
                         this.props.location.pathname !== "/Search" && 
-                        <Link to="/Search" className="px-4 py-2 border border-gray-200 rounded">Search</Link>
+                        <Link to="/Search" className="px-4 py-2 border border-gray-600 rounded 
+                        bg-white text-black shadow-inner transition duration-150 hover:bg-gray-200">Search</Link>
                     }
                 </div>
                 <div className="w-full h-full">

@@ -1,8 +1,8 @@
-const Loading = () => {
+const Loading = (props) => {
   return (
-    <span className="mx-auto">
+    <span>
       <svg
-        className="animate-spin h-12 w-12 mr-3 text-gray-500"
+        className={`animate-spin ${props.className !== undefined ? `${props.className}`:"h-12 w-12"} mr-3 text-gray-500`}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

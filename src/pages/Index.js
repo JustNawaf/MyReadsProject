@@ -23,7 +23,7 @@ class Index extends Component {
             <h1 className="text-xl lg:text-3xl">Currently Reading</h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-row overflow-x-auto overscroll-auto justify-start w-full">
               {
-                this.props.showLoading && <Loading/>
+                this.props.showLoading && <span className="w-full flex justify-center"><Loading/></span>
               }
               {this.getBooksBasedShelf("currentlyReading").map((book) => (
                 <Book key={book.id} book={book} updateBookShelf={this.props.updateBookShelf}/>
@@ -43,7 +43,7 @@ class Index extends Component {
             <h1 className="text-xl lg:text-3xl">Want To Read </h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-row overflow-x-auto overscroll-auto justify-start w-full">
               {
-                this.props.showLoading && <Loading/>
+                this.props.showLoading && <span className="w-full flex justify-center"><Loading/></span>
               }
               {this.getBooksBasedShelf("wantToRead").map((book) => (
                 <Book key={book.id} book={book} updateBookShelf={this.props.updateBookShelf}/>
@@ -63,7 +63,7 @@ class Index extends Component {
             <h1 className="text-xl lg:text-3xl">Read</h1>
             <div className="my-6 py-4 border-none rounded-md flex flex-row overflow-x-auto overscroll-auto justify-start w-full">
               {
-                this.props.showLoading && <Loading/>
+                this.props.showLoading && <span className="w-full flex justify-center"><Loading/></span>
               }
               {this.getBooksBasedShelf("read").map((book) => (
                 <Book key={book.id} book={book} updateBookShelf={this.props.updateBookShelf}/>
